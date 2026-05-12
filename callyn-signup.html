@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CALLYN — Start Your Free Trial</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,600&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07090F;
+  --s1: #0C0F1A;
+  --s2: #111525;
+  --s3: #161C2E;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --gold: #C8941A;
+  --gold2: #F0B429;
+  --gold3: #FDD87A;
+  --teal: #0B9E92;
+  --teal2: #14B8A6;
+  --green: #22C55E;
+  --red: #EF4444;
+  --text: #EEF0F8;
+  --muted: #3A4055;
+  --muted2: #6B7490;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Geist', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  background: rgba(7,9,15,0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, var(--gold), var(--teal));
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.logo-text {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--text), var(--gold2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.nav-link {
+  color: var(--muted2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-link:hover { color: var(--text); }
+
+/* HERO */
+.hero {
+  padding: 160px 48px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(200,148,26,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200,148,26,0.1);
+  border: 1px solid rgba(200,148,26,0.25);
+  color: var(--gold2);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold2), var(--teal2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted2);
+  max-width: 520px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+/* PLANS */
+.plans-section {
+  padding: 20px 48px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.plan-card {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.plan-card:hover {
+  border-color: rgba(200,148,26,0.3);
+  transform: translateY(-4px);
+}
+
+.plan-card.featured {
+  border-color: rgba(200,148,26,0.4);
+  background: linear-gradient(135deg, rgba(200,148,26,0.08), rgba(11,158,146,0.05));
+}
+
+.plan-card.featured::before {
+  content: 'MOST POPULAR';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+  color: var(--bg);
+  text-align: center;
+  padding: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.plan-card.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold), 0 20px 60px rgba(200,148,26,0.15);
+}
+
+.plan-tier {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.plan-featured .plan-tier { margin-top: 24px; }
+
+.plan-price {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--gold2);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.plan-price span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--muted2);
+}
+
+.plan-desc {
+  font-size: 13px;
+  color: var(--muted2);
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.plan-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.5;
+}
+
+.plan-features li::before {
+  content: '✓';
+  color: var(--teal2);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.plan-features li.locked {
+  opacity: 0.4;
+}
+
+.plan-features li.locked::before {
+  content: '🔒';
+  font-size: 11px;
+}
+
+.plan-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Geist', sans-serif;
+  border: none;
+}
+
+.plan-btn-outline {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text);
+}
+
+.plan-btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold2);
+}
+
+.plan-btn-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: var(--bg);
+}
+
+.plan-btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(200,148,26,0.3);
+}
+
+/* SIGNUP FORM */
+.signup-section {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.form-card {
+  background: var(--s1);
+  border: 1px solid var(--border2);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form-header h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.form-header p {
+  font-size: 14px;
+  color: var(--muted2);
+}
+
+.selected-plan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200,148,26,0.1);
+  border: 1px solid rgba(200,148,26,0.2);
+  color: var(--gold2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted2);
+  margin-bottom: 7px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.form-input {
+  width: 100%;
+  background: var(--s2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  border-color: var(--gold);
+  background: var(--s3);
+}
+
+.form-input::placeholder { color: var(--muted); }
+
+.form-select {
+  width: 100%;
+  background: var(--s2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7490' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  transition: border-color 0.2s;
+}
+
+.form-select:focus { border-color: var(--gold); }
+
+.form-divider {
+  text-align: center;
+  position: relative;
+  margin: 24px 0;
+}
+
+.form-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--border);
+}
+
+.form-divider span {
+  background: var(--s1);
+  padding: 0 12px;
+  font-size: 12px;
+  color: var(--muted2);
+  position: relative;
+}
+
+.trial-badge {
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trial-badge-icon { font-size: 22px; }
+
+.trial-badge-text { font-size: 13px; }
+.trial-badge-text strong { color: var(--green); display: block; font-size: 14px; margin-bottom: 2px; }
+.trial-badge-text span { color: var(--muted2); }
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--gold), var(--gold2));
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Geist', sans-serif;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(200,148,26,0.35);
+}
+
+.submit-btn:active { transform: translateY(0); }
+
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  pointer-events: none;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.form-footer a { color: var(--gold2); text-decoration: none; }
+
+/* TRUST BADGES */
+.trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px 48px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted2);
+}
+
+.trust-icon { font-size: 18px; }
+
+/* SUCCESS STATE */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7,9,15,0.95);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.success-overlay.show { display: flex; }
+
+.success-card {
+  background: var(--s1);
+  border: 1px solid rgba(200,148,26,0.3);
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 480px;
+  width: 90%;
+  animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--gold), var(--teal));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 24px;
+  box-shadow: 0 0 40px rgba(200,148,26,0.4);
+}
+
+.success-card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.success-card p {
+  font-size: 15px;
+  color: var(--muted2);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.success-steps {
+  background: var(--s2);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.success-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.success-step:last-child { border-bottom: none; }
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--gold), var(--teal));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--bg);
+  flex-shrink: 0;
+}
+
+.step-text strong { display: block; color: var(--text); margin-bottom: 2px; }
+.step-text span { color: var(--muted2); }
+
+.wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'Geist', sans-serif;
+}
+
+.wa-btn:hover { background: #20BD5B; transform: translateY(-1px); }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--s2);
+  border: 1px solid var(--green);
+  color: var(--text);
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  animation: slideUp 0.3s ease;
+}
+
+.toast.show { display: flex; }
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* FOOTER */
+footer {
+  background: var(--s1);
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted2);
+}
+
+footer a { color: var(--gold2); text-decoration: none; }
+
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .hero { padding: 120px 20px 60px; }
+  .plans-section { padding: 20px 20px 60px; }
+  .plans-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .trust-row { gap: 20px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://callyn.io" class="nav-logo">
+    <div class="logo-icon">🎙️</div>
+    <div class="logo-text">CALLYN</div>
+  </a>
+  <div class="nav-right">
+    <a href="https://callyn.io" class="nav-link">← Back to website</a>
+    <a href="#" class="nav-link" onclick="showToast('📞 Connecting to Sara...')">Talk to Sara</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">🎙️ 7-Day Free Trial · No Credit Card</div>
+  <h1>Start Your Free Trial<br><em>Today. Live in 24 Hours.</em></h1>
+  <p class="hero-sub">Choose your plan below, fill in your business details, and Sara will be answering your calls by tomorrow. Guaranteed.</p>
+</section>
+
+<!-- TRUST ROW -->
+<div class="trust-row">
+  <div class="trust-item"><span class="trust-icon">🔒</span> Secure signup</div>
+  <div class="trust-item"><span class="trust-icon">⚡</span> Live in 24 hours</div>
+  <div class="trust-item"><span class="trust-icon">🎁</span> 7 days free</div>
+  <div class="trust-item"><span class="trust-icon">💬</span> Urdu + Punjabi + Pashto</div>
+  <div class="trust-item"><span class="trust-icon">📲</span> WhatsApp alerts</div>
+  <div class="trust-item"><span class="trust-icon">🇵🇰</span> JazzCash + EasyPaisa</div>
+</div>
+
+<!-- PLANS -->
+<section class="plans-section">
+  <div class="plans-grid">
+
+    <!-- STARTER -->
+    <div class="plan-card" id="plan-starter" onclick="selectPlan('starter', 'Starter — Rs. 20,000/month')">
+      <div class="plan-tier">Starter</div>
+      <div class="plan-price">Rs. 20K<span>/month</span></div>
+      <div class="plan-desc">Perfect for small clinics and single-owner businesses</div>
+      <ul class="plan-features">
+        <li>1 AI phone number</li>
+        <li>300 minutes/month</li>
+        <li>Order & appointment tracking</li>
+        <li>WhatsApp alerts after every call</li>
+        <li>Urdu + English</li>
+        <li>Call logs + basic transcript</li>
+        <li class="locked">Advanced analytics</li>
+        <li class="locked">CRM integration</li>
+      </ul>
+      <button class="plan-btn plan-btn-outline">Select Starter</button>
+    </div>
+
+    <!-- GROWTH -->
+    <div class="plan-card featured" id="plan-growth" onclick="selectPlan('growth', 'Growth — Rs. 40,000/month')">
+      <div class="plan-tier plan-featured">Growth</div>
+      <div class="plan-price">Rs. 40K<span>/month</span></div>
+      <div class="plan-desc">For multi-doctor clinics and growing businesses</div>
+      <ul class="plan-features">
+        <li>2 AI phone numbers</li>
+        <li>800 minutes/month</li>
+        <li>Full call transcripts</li>
+        <li>Appointments + bookings dashboard</li>
+        <li>Urdu, Punjabi, Pashto, English</li>
+        <li>Advanced analytics + ROI tracking</li>
+        <li>WhatsApp + SMS alerts</li>
+        <li>Priority support</li>
+      </ul>
+      <button class="plan-btn plan-btn-gold">Select Growth ✦</button>
+    </div>
+
+    <!-- SCALE -->
+    <div class="plan-card" id="plan-scale" onclick="selectPlan('scale', 'Scale — Rs. 90,000/month')">
+      <div class="plan-tier">Scale</div>
+      <div class="plan-price">Rs. 90K<span>/month</span></div>
+      <div class="plan-desc">For hospitals, hotel chains and large enterprises</div>
+      <ul class="plan-features">
+        <li>5 AI phone numbers</li>
+        <li>1,600 minutes/month</li>
+        <li>5 AI agents (Sara + 4 custom)</li>
+        <li>Full CRM integration</li>
+        <li>All 5 Pakistani languages</li>
+        <li>White label — resell as your brand</li>
+        <li>Shopify/WooCommerce sync</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <button class="plan-btn plan-btn-outline">Select Scale</button>
+    </div>
+
+  </div>
+
+  <!-- SIGNUP FORM -->
+  <div class="signup-section">
+    <div class="form-card">
+
+      <div class="form-header">
+        <h2>Create Your Account</h2>
+        <p>Sara will be live at your business within 24 hours</p>
+      </div>
+
+      <div class="selected-plan-badge" id="selectedPlanBadge">
+        ⚡ Growth Plan — Rs. 40,000/month selected
+      </div>
+
+      <div class="trial-badge">
+        <div class="trial-badge-icon">🎁</div>
+        <div class="trial-badge-text">
+          <strong>7-Day Free Trial Included</strong>
+          <span>No credit card needed to start. Cancel anytime.</span>
+        </div>
+      </div>
+
+      <!-- PERSONAL INFO -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input class="form-input" type="text" placeholder="Ahmed" id="firstName">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input class="form-input" type="text" placeholder="Khan" id="lastName">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" placeholder="ahmed@yourclinic.pk" id="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">WhatsApp Number</label>
+        <input class="form-input" type="tel" placeholder="+92 300 1234567" id="whatsapp">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" placeholder="Create a strong password" id="password">
+      </div>
+
+      <div class="form-divider"><span>Your Business Details</span></div>
+
+      <div class="form-group">
+        <label class="form-label">Business Name</label>
+        <input class="form-input" type="text" placeholder="Al-Syed Eye Hospital / Eyecostic.com" id="businessName">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Business Type</label>
+        <select class="form-select" id="businessType">
+          <option value="">Select your industry...</option>
+          <option value="hospital">🏥 Hospital / Eye Clinic</option>
+          <option value="clinic">🩺 General Medical Clinic</option>
+          <option value="dental">🦷 Dental Clinic</option>
+          <option value="ecommerce">🛒 E-Commerce Store</option>
+          <option value="fashion">👗 Clothing / Fashion</option>
+          <option value="hotel">🏨 Hotel / Guest House</option>
+          <option value="restaurant">🍽️ Restaurant / Cafe</option>
+          <option value="pharmacy">💊 Pharmacy</option>
+          <option value="real-estate">🏠 Real Estate</option>
+          <option value="other">📋 Other Business</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">City</label>
+          <select class="form-select" id="city">
+            <option value="">Select city...</option>
+            <option value="lahore">Lahore</option>
+            <option value="karachi">Karachi</option>
+            <option value="islamabad">Islamabad</option>
+            <option value="rawalpindi">Rawalpindi</option>
+            <option value="sialkot">Sialkot</option>
+            <option value="faisalabad">Faisalabad</option>
+            <option value="multan">Multan</option>
+            <option value="peshawar">Peshawar</option>
+            <option value="quetta">Quetta</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Language Preference</label>
+          <select class="form-select" id="language">
+            <option value="urdu">Urdu + English</option>
+            <option value="punjabi">Punjabi + Urdu</option>
+            <option value="pashto">Pashto + Urdu</option>
+            <option value="sindhi">Sindhi + Urdu</option>
+            <option value="all">All 5 Languages</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-divider"><span>Payment Method</span></div>
+
+      <div class="form-group">
+        <label class="form-label">Pay After Free Trial via</label>
+        <select class="form-select" id="payment">
+          <option value="jazzcash">📱 JazzCash</option>
+          <option value="easypaisa">📱 EasyPaisa</option>
+          <option value="bank">🏦 Bank Transfer (Meezan / HBL)</option>
+          <option value="card">💳 Debit / Credit Card</option>
+        </select>
+      </div>
+
+      <button class="submit-btn" onclick="handleSignup()">
+        Start My 7-Day Free Trial — Rs. 0 Today ✦
+      </button>
+
+      <div class="form-footer">
+        By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.<br>
+        Already have an account? <a href="#">Sign in</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-card">
+    <div class="success-icon">🎉</div>
+    <h2>You're In!</h2>
+    <p>Shukriya! Your free trial has started. Our team will set up Sara for your business within <strong style="color:var(--gold2)">24 hours</strong> and contact you on WhatsApp.</p>
+
+    <div class="success-steps">
+      <div class="success-step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Setup Confirmation</strong>
+          <span>We'll WhatsApp you to confirm your business details</span>
+        </div>
+      </div>
+      <div class="success-step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Sara Goes Live</strong>
+          <span>Your AI receptionist will be active within 24 hours</span>
+        </div>
+      </div>
+      <div class="success-step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>7-Day Free Testing</strong>
+          <span>Monitor calls and results in your dashboard</span>
+        </div>
+      </div>
+      <div class="success-step">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <strong>Pay After Trial</strong>
+          <span>Only pay if you love it — via JazzCash or bank transfer</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://wa.me/923186993470?text=AOA! I just signed up for CALLYN free trial. Please set up Sara for my business." class="wa-btn" target="_blank">
+      📲 WhatsApp Us to Confirm Setup
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 CALLYN · <a href="https://callyn.io">callyn.io</a> · AI Voice Platform · Pakistan 🇵🇰</span>
+  <span>Questions? <a href="https://wa.me/923186993470">WhatsApp us</a></span>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
+
+<script>
+let selectedPlan = 'growth';
+let selectedPlanName = 'Growth — Rs. 40,000/month';
+
+// Select plan on load
+document.getElementById('plan-growth').classList.add('selected');
+
+function selectPlan(plan, name) {
+  selectedPlan = plan;
+  selectedPlanName = name;
+
+  // Update card styles
+  ['starter','growth','scale'].forEach(p => {
+    document.getElementById('plan-'+p).classList.remove('selected');
+  });
+  document.getElementById('plan-'+plan).classList.add('selected');
+
+  // Update badge
+  document.getElementById('selectedPlanBadge').textContent = '⚡ ' + name + ' selected';
+
+  // Scroll to form
+  document.querySelector('.signup-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  showToast('✅ ' + name.split('—')[0].trim() + ' selected!');
+}
+
+function handleSignup() {
+  const firstName = document.getElementById('firstName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  const businessName = document.getElementById('businessName').value.trim();
+  const businessType = document.getElementById('businessType').value;
+  const password = document.getElementById('password').value;
+
+  if (!firstName) { showToast('⚠️ Please enter your first name'); return; }
+  if (!email || !email.includes('@')) { showToast('⚠️ Please enter a valid email'); return; }
+  if (!whatsapp) { showToast('⚠️ Please enter your WhatsApp number'); return; }
+  if (!businessName) { showToast('⚠️ Please enter your business name'); return; }
+  if (!businessType) { showToast('⚠️ Please select your business type'); return; }
+  if (password.length < 6) { showToast('⚠️ Password must be at least 6 characters'); return; }
+
+  // Show success
+  document.getElementById('successOverlay').classList.add('show');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// Click outside success to close
+document.getElementById('successOverlay').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('show');
+});
+</script>
+</body>
+</html>
