@@ -403,6 +403,73 @@ footer{border-top:1px solid var(--line-soft);padding:42px 0;background:rgba(4,6,
 .foot-links a:hover{color:var(--text);}
 .foot-copy{font-family:var(--mono);font-size:11.5px;color:var(--mute);}
 
+/* ── PRELOADER ── */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--void);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .65s ease,visibility .65s;}
+#loader.done{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-mark{width:76px;height:76px;border-radius:22px;background:linear-gradient(135deg,var(--teal-deep),var(--teal));display:flex;align-items:center;justify-content:center;box-shadow:0 0 70px rgba(45,212,191,0.45);animation:loaderPop .8s cubic-bezier(.2,.9,.3,1.35) both;}
+.loader-mark svg{width:38px;height:38px;}
+@keyframes loaderPop{from{transform:scale(.55);opacity:0;}to{transform:scale(1);opacity:1;}}
+.loader-bars{display:flex;gap:5px;align-items:center;height:28px;}
+.loader-bars i{width:4px;border-radius:3px;background:var(--teal);animation:loadwave 1s ease-in-out infinite;}
+.loader-bars i:nth-child(2){animation-delay:.12s;}
+.loader-bars i:nth-child(3){animation-delay:.24s;}
+.loader-bars i:nth-child(4){animation-delay:.36s;}
+.loader-bars i:nth-child(5){animation-delay:.48s;}
+@keyframes loadwave{0%,100%{height:8px;opacity:.45;}50%{height:26px;opacity:1;}}
+.loader-word{font-family:var(--mono);font-size:11px;letter-spacing:4px;color:var(--mute);text-transform:uppercase;}
+
+/* ── SCROLL PROGRESS ── */
+#scrollbar{position:fixed;top:0;left:0;height:2px;width:0;z-index:1001;background:linear-gradient(90deg,var(--teal),var(--gold));box-shadow:0 0 14px rgba(45,212,191,0.7);}
+
+/* ── CUSTOM CURSOR ── */
+#cursor{position:fixed;left:-100px;top:-100px;width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(45,212,191,0.8);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border-color .25s;mix-blend-mode:screen;}
+#cursor.hov{width:54px;height:54px;background:rgba(45,212,191,0.09);border-color:rgba(45,212,191,0.4);}
+@media (hover:none),(pointer:coarse){#cursor{display:none;}}
+
+/* ── HERO LINE REVEAL + URDU SIGNATURE ── */
+h1 .hl{display:block;overflow:hidden;}
+h1 .hl>span{display:block;transform:translateY(112%);animation:riseUp .95s cubic-bezier(.2,.85,.2,1) forwards;animation-delay:.15s;}
+h1 .hl:nth-child(2)>span{animation-delay:.3s;}
+@keyframes riseUp{to{transform:translateY(0);}}
+
+/* ── BILINGUAL TICKER ── */
+.ticker{border-bottom:1px solid var(--line-soft);padding:15px 0;overflow:hidden;background:rgba(10,16,31,0.4);}
+.ticker-track{display:flex;gap:46px;width:max-content;animation:tick 36s linear infinite;}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+.ticker span{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);white-space:nowrap;display:flex;align-items:center;}
+.ticker b{color:var(--teal);font-weight:600;}
+.ticker .sep{color:var(--gold);font-size:9px;}
+@keyframes tick{to{transform:translateX(-50%);}}
+
+/* ── SPOTLIGHT CARDS ── */
+.quote{position:relative;}
+.cell,.quote,.plan{--mx:50%;--my:50%;}
+.cell::before,.quote::before,.plan::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(340px circle at var(--mx) var(--my),rgba(45,212,191,0.09),transparent 65%);opacity:0;transition:opacity .35s;pointer-events:none;}
+.cell:hover::before,.quote:hover::before,.plan:hover::before{opacity:1;}
+
+/* ── BENTO STAGGER ── */
+.bento .cell:nth-child(2){transition-delay:.07s;}
+.bento .cell:nth-child(3){transition-delay:.14s;}
+.bento .cell:nth-child(4){transition-delay:.21s;}
+.bento .cell:nth-child(5){transition-delay:.28s;}
+.bento .cell:nth-child(6){transition-delay:.35s;}
+.quotes .quote:nth-child(2){transition-delay:.1s;}
+.quotes .quote:nth-child(3){transition-delay:.2s;}
+.plans .plan:nth-child(2){transition-delay:.1s;}
+.plans .plan:nth-child(3){transition-delay:.2s;}
+
+/* ── 3D TILT ── */
+.hero-grid{perspective:1400px;}
+.console{will-change:transform;}
+.btn-primary{will-change:transform;}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:998;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,0.35);transition:transform .2s;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:2px solid rgba(37,211,102,0.5);animation:waPulse 2.4s ease-out infinite;}
+@keyframes waPulse{0%{transform:scale(.82);opacity:1;}100%{transform:scale(1.35);opacity:0;}}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -411,6 +478,11 @@ footer{border-top:1px solid var(--line-soft);padding:42px 0;background:rgba(4,6,
   *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
   html{scroll-behavior:auto;}
   .reveal{opacity:1;transform:none;}
+  #loader{display:none;}
+  #cursor{display:none;}
+  .ticker-track{animation:none;transform:none;}
+  h1 .hl>span{transform:none;animation:none;}
+  .wa-float::after{animation:none;display:none;}
 }
 
 @media (max-width:1023px){
@@ -442,6 +514,18 @@ footer{border-top:1px solid var(--line-soft);padding:42px 0;background:rgba(4,6,
 <div class="aurora" aria-hidden="true"></div>
 <div class="gridlines" aria-hidden="true"></div>
 
+<!-- PRELOADER -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-mark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#04221E" stroke-width="2.4" stroke-linecap="round"><path d="M4 12v0M8 8v8M12 5v14M16 8v8M20 12v0"/></svg>
+  </div>
+  <div class="loader-bars"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="loader-word">Sara is waking up…</div>
+</div>
+<noscript><style>#loader{display:none;}</style></noscript>
+<div id="scrollbar" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"></div>
+
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
@@ -469,7 +553,7 @@ footer{border-top:1px solid var(--line-soft);padding:42px 0;background:rgba(4,6,
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow"><span class="live-dot"></span>Live in Pakistan · Sara is on a call right now</div>
-      <h1>The receptionist<br><span class="grad">that never sleeps.</span></h1>
+      <h1><span class="hl"><span>The receptionist</span></span><span class="hl"><span class="grad">that never sleeps.</span></span></h1>
       <p class="hero-sub"><strong>Sara</strong> is CALLYN's AI receptionist — she runs your entire front desk. She answers your business line 24/7, books appointments, confirms orders, handles <strong>4–5 calls at once</strong>, and sends you a WhatsApp summary after every conversation. Everything a receptionist does — without hiring one. Built for Pakistan, priced in rupees.</p>
       <div class="hero-actions">
         <a href="callyn-signup.html" class="btn btn-primary">Start 7-Day Free Trial</a>
@@ -513,6 +597,28 @@ footer{border-top:1px solid var(--line-soft);padding:42px 0;background:rgba(4,6,
     <div class="stat reveal"><div class="stat-val"><span class="counter" data-target="94">0</span><span class="u">%</span></div><div class="stat-label">Answer rate · first hospital pilot</div></div>
     <div class="stat reveal"><div class="stat-val"><span class="u">Rs.</span><span class="counter" data-target="20">0</span><span class="u">K</span></div><div class="stat-label">One flat cost — not a full salary</div></div>
     <div class="stat reveal"><div class="stat-val"><span class="counter" data-target="24">0</span><span class="u">/7</span></div><div class="stat-label">No breaks, no leave, no sick days</div></div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span><b>AOA!</b>&nbsp;Main Sara hoon</span><span class="sep">◆</span>
+    <span>Urdu + English · mid-sentence</span><span class="sep">◆</span>
+    <span>Appointment booked ✓</span><span class="sep">◆</span>
+    <span>WhatsApp summary sent</span><span class="sep">◆</span>
+    <span>Live 24/7 · Eid included</span><span class="sep">◆</span>
+    <span>Lahore · Sialkot · Karachi · Islamabad</span><span class="sep">◆</span>
+    <span>4–5 calls at once</span><span class="sep">◆</span>
+    <span><b>Koi call miss nahi</b></span><span class="sep">◆</span>
+    <span><b>AOA!</b>&nbsp;Main Sara hoon</span><span class="sep">◆</span>
+    <span>Urdu + English · mid-sentence</span><span class="sep">◆</span>
+    <span>Appointment booked ✓</span><span class="sep">◆</span>
+    <span>WhatsApp summary sent</span><span class="sep">◆</span>
+    <span>Live 24/7 · Eid included</span><span class="sep">◆</span>
+    <span>Lahore · Sialkot · Karachi · Islamabad</span><span class="sep">◆</span>
+    <span>4–5 calls at once</span><span class="sep">◆</span>
+    <span><b>Koi call miss nahi</b></span><span class="sep">◆</span>
   </div>
 </div>
 
@@ -823,6 +929,11 @@ footer{border-top:1px solid var(--line-soft);padding:42px 0;background:rgba(4,6,
   </div>
 </footer>
 
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/923716506006?text=AOA!%20I%20want%20to%20start%20my%20CALLYN%20free%20trial." target="_blank" rel="noopener" aria-label="Chat with CALLYN on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2c2.3 1.3 4.9 1.9 7.7 1.9 8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.9 1.3 1.3-4.8-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.1C2.5 8.6 8.6 2.5 16 2.5S29.5 8.6 29.5 16 23.4 29.3 16 29.3zm7.4-9.9c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.3-2-1.2-1.1-2-2.4-2.3-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.6-.7-.9-.7h-.7c-.3 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1 0 1.8 1.3 3.6 1.5 3.8.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.4-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>
+</a>
+
 <script>
 (function(){
   'use strict';
@@ -1045,6 +1156,84 @@ footer{border-top:1px solid var(--line-soft);padding:42px 0;background:rgba(4,6,
       playScenario(tab.getAttribute('data-scn'));
     });
   });
+
+  /* ── Preloader ── */
+  var loader = document.getElementById('loader');
+  function hideLoader(){ if(loader) loader.classList.add('done'); }
+  if(reduceMotion){ hideLoader(); }
+  else{
+    if(document.readyState === 'complete'){ setTimeout(hideLoader, 600); }
+    else{ window.addEventListener('load', function(){ setTimeout(hideLoader, 600); }); }
+    setTimeout(hideLoader, 2800); /* failsafe */
+  }
+
+  /* ── Scroll progress bar ── */
+  var sbar = document.getElementById('scrollbar');
+  function upBar(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    if(sbar && max > 0) sbar.style.width = (h.scrollTop / max * 100) + '%';
+  }
+  window.addEventListener('scroll', upBar, {passive:true});
+  upBar();
+
+  var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* ── Custom cursor ── */
+  var cur = document.getElementById('cursor');
+  if(cur && fine && !reduceMotion){
+    var cpx = -100, cpy = -100, ctx2 = -100, cty = -100;
+    document.addEventListener('mousemove', function(e){ ctx2 = e.clientX; cty = e.clientY; }, {passive:true});
+    (function moveCur(){
+      cpx += (ctx2 - cpx) * 0.22;
+      cpy += (cty - cpy) * 0.22;
+      cur.style.left = cpx + 'px';
+      cur.style.top = cpy + 'px';
+      requestAnimationFrame(moveCur);
+    })();
+    document.querySelectorAll('a,button,summary').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ cur.classList.add('hov'); });
+      el.addEventListener('mouseleave', function(){ cur.classList.remove('hov'); });
+    });
+  } else if(cur){ cur.style.display = 'none'; }
+
+  /* ── Magnetic primary buttons ── */
+  if(fine && !reduceMotion){
+    document.querySelectorAll('.btn-primary').forEach(function(b){
+      b.addEventListener('mousemove', function(e){
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width/2) * 0.16) + 'px,' + ((e.clientY - r.top - r.height/2) * 0.26) + 'px)';
+      });
+      b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+    });
+  }
+
+  /* ── 3D tilt on call console ── */
+  var consoleEl = document.querySelector('.console');
+  if(consoleEl && fine && !reduceMotion){
+    consoleEl.addEventListener('mousemove', function(e){
+      var r = consoleEl.getBoundingClientRect();
+      var rx = ((e.clientY - r.top) / r.height - 0.5) * -5;
+      var ry = ((e.clientX - r.left) / r.width - 0.5) * 7;
+      consoleEl.style.transform = 'rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+    });
+    consoleEl.addEventListener('mouseleave', function(){
+      consoleEl.style.transition = 'transform .5s ease';
+      consoleEl.style.transform = '';
+      setTimeout(function(){ consoleEl.style.transition = ''; }, 520);
+    });
+  }
+
+  /* ── Spotlight cards ── */
+  if(fine){
+    document.querySelectorAll('.cell,.quote,.plan').forEach(function(c){
+      c.addEventListener('mousemove', function(e){
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
 
   playScenario('clinic');
 })();
